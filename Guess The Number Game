@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+{
+    int num, guess, nguess;
+    char nplay= 'y';
+    srand(time(0));
+
+    printf("Welcome! This is Guess The Number game.\nYou have to guess correctly a random computer-generated number.\nYou will be told your number of attempts at the end.\n");
+
+    do
+    {
+        num= rand() % 100 + 1;
+        nguess= 1;
+        guess=0;
+
+        while (guess!= num)
+        {
+            printf("Guess a number between 1 to 100:\n");
+            scanf("%d", &guess);
+
+            if (guess>num)
+            {
+                printf("Lower The Number!\n");
+            }
+            else if (guess<num)
+            {
+                printf("Higher The Number!\n");
+            }
+            else
+            {
+                printf("You Guessed It Right!!\nNumber Of Attempts: %d\n", nguess);
+            }
+            nguess++;
+        }
+
+        printf("Play Again? (y/n):");
+        scanf(" %c", &nplay);        
+    } while (nplay== 'y');
+
+    printf("Thanks For Playing!\n");
+
+    return 0;
+    
+}
